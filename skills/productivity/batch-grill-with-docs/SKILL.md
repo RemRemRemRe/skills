@@ -1,6 +1,6 @@
 ---
 name: batch-grill-with-docs
-description: "Batch-grill a plan or design by its current decision frontier: all resolvable questions per round with recommended answers and close-call scores, glossary capture, selective ADRs, pre-mortem on irreversible calls."
+description: "Batch-grill a plan or design by its current decision frontier: all resolvable questions per round with recommended answers and close-call scores, glossary capture, selective ADRs, pre-mortem on irreversible calls. Re-enter for a new round whenever implementation raises a decision."
 ---
 
 # Batch Grill with Docs
@@ -15,6 +15,8 @@ Resolve clear answers, retain omitted questions, turn ambiguity or contradiction
 
 Run the `domain-modeling` discipline throughout. When a term is confirmed, write it immediately to the correct-scope `CONTEXT.md` as glossary language, without implementation details. Create an ADR only when the decision is hard to reverse, reflects a real trade-off, and needs its reason preserved for future maintainers. When a settled decision is high-stakes or hard to reverse, offer a `pre-mortem` on it before moving on.
 
+Implementation is not the end of the graph. Writing code is the cheapest way to discover facts, so the frontier grows back as you execute. When the work raises a question that is the user's to decide, open a new round instead of assuming an answer or asking it as an unstructured one-off: same recomputed frontier, same batch format, same recommendations. Re-enter only for decisions that change an interface or observable behaviour, are hard to reverse, or overturn something already settled; a local, cheaply reversible implementation choice is yours to make — and to report as a deviation. Distinguish growing the graph (a new frontier, confirmed in place) from revising it (a settled node turns out wrong: re-confirm its affected downstream, and supersede the ADR if one recorded it). An unresolved decision blocks only its own downstream work: advance the independent branches, and park the work at a compiling, testable point before you wait. Mid-implementation rounds are the normal case, not a failure — the planning consensus is provisional until execution stops contradicting it. Confirmation stays scoped: an extension round needs its own decisions answered, and never read "continue" as accepting a recommendation.
+
 When no unresolved decision or evidence blocker remains, summarize the proposed consensus and ask for explicit confirmation — the last batch answer is not confirmation by itself. Offer a full `pre-mortem` on the settled plan before handing back. Do not implement the plan before confirmation; afterward, implement only if the user's request authorized it.
 
-Stop only when consensus is explicit, confirmed terms and qualifying ADRs are written, every dispatched lookup has rendezvoused, and no unauthorized implementation has begun.
+Stop the planning phase there. Once implementation is authorized, keep going: stop only when the work is finished and the frontier is empty — consensus explicit on every decision raised, confirmed terms and qualifying ADRs written, every dispatched lookup rendezvoused, no decision silently assumed, no unauthorized implementation. A round opened mid-implementation is a normal waypoint, not the end of the session.
