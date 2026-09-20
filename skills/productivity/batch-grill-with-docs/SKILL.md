@@ -5,7 +5,7 @@ description: "Batch-grill a plan or design by its current decision frontier: all
 
 # Batch Grill with Docs
 
-Interview the user relentlessly until you reach a shared understanding, and capture the results as docs as you go. Model the plan as a decision graph: decisions are nodes, and their prerequisites are dependencies.
+Interview the user relentlessly until you reach a shared understanding, and capture the results as docs as you go. Model the plan as a decision graph: decisions are nodes, and their prerequisites are dependencies. The graph carries the observable surface too: every log line, file format, public signature, error string or console output the change alters is a node, so it belongs in a round's frontier while planning, never in a mid-flight round once implementation has started.
 
 Explore the repository, source, and available tools before asking anything. Resolve queryable facts yourself; surface missing evidence instead of asking the user to supply facts. For a frontier question that needs real investigation, dispatch a sub-agent to find it, never ask the user for anything you could look up yourself. Hold the round until every lookup that could change a question has reported: a question asked before its facts arrive may be the wrong question, and rounds scattered by late lookups are harder to read and answer. A lookup that can no longer change any question may stay in flight. Rendezvous every dispatched lookup before you synthesize or act.
 

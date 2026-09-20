@@ -3,7 +3,7 @@ name: grilling
 description: Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.
 ---
 
-Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.
+Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it. The tree carries the observable surface too: every log line, file format, public signature, error string or console output the change alters is a decision in it, so it belongs in the frontier while planning, never in a mid-flight round once implementation has started.
 
 Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled: the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. An unanswered question takes its recommendation, so wait only for the **blocking** questions, and mark them: a decision that changes an interface or observable behaviour, is hard to reverse, or overturns something already settled. The default settles questions, never the plan.
 
