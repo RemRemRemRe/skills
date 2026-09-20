@@ -11,7 +11,7 @@ When you surface this proactively (rather than because the user asked): only do 
 
 The technique: imagine it is 12 months from now and this plan failed. Work backwards, find why, then harden the plan against it.
 
-Run the five-step framework in [references/pre-mortem-framework.md](references/pre-mortem-framework.md): extract the assumptions the plan needs to be true, rate each on confidence and impact-if-wrong, map the vulnerabilities (low confidence + high impact), trace the dependency chain, and test reversibility. Close with kill switches and hardening actions. The template is the definition of done: self-check the report against it — an empty KILL SWITCHES or HARDENING ACTIONS section means the analysis isn't finished, not that there is nothing to say. Never stop at the vulnerability map.
+Run the five-step framework in [references/pre-mortem-framework.md](references/pre-mortem-framework.md): extract the assumptions the plan needs to be true, rate each on confidence and impact-if-wrong, map the vulnerabilities (low confidence + high impact), trace the dependency chain, and test reversibility. Close with kill switches and hardening actions. The template is the definition of done: self-check the report against it. An empty KILL SWITCHES or HARDENING ACTIONS section means the analysis isn't finished, not that there is nothing to say. Never stop at the vulnerability map.
 
 Find facts yourself rather than asking: explore the codebase and tools for what you can look up; for anything that needs real investigation, dispatch a sub-agent to research it. The risk tolerance is the user's; the facts are yours to find.
 
