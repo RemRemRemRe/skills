@@ -2,7 +2,7 @@
 
 `batch-grill-with-docs` interrogates a plan or design until nothing in it is left assumed, and writes the result down as it goes. It models the plan as a **decision graph**: decisions are nodes and their prerequisites are dependencies, so each **round** can ask the current **frontier**, every unresolved decision whose prerequisites are already resolved. The graph carries the observable surface too: every log line, file format, public signature, error string or console output the change alters is a node, so it belongs in a round's frontier while planning, never in a mid-flight round once implementation has started.
 
-Its defining move is that implementation does not end the interview. Writing code is the cheapest way to discover facts, so the frontier grows back as the work proceeds: a question that turns out to be yours to decide opens a new round in the same batch format, instead of being settled by assumption or dropped in as a one-off. Alongside the interview it runs the [domain-modeling](https://aihero.dev/skills-domain-modeling) discipline, so a confirmed term lands in `CONTEXT.md` at once and a hard-to-reverse decision becomes an ADR.
+Its defining move is that implementation does not end the interview. Writing code is the cheapest way to discover facts, so the frontier grows back as the work proceeds: a question that turns out to be yours to decide opens a new round in the same batch format, instead of being settled by assumption or dropped in as a one-off. Alongside the interview it runs the [domain-modeling](https://aihero.dev/skills-domain-modeling) discipline, so a confirmed term lands in `GLOSSARY.md` at once and a hard-to-reverse decision becomes an ADR.
 
 ## When to reach for it
 
@@ -10,7 +10,7 @@ Type `/batch-grill-with-docs`, or the [agent](https://www.aihero.dev/ai-coding-d
 
 ## Prerequisites
 
-A working directory it can write into. Confirmed terms go to the correct-scope `CONTEXT.md` and qualifying decisions to ADRs, so there has to be a project to keep them.
+A working directory it can write into. Confirmed terms go to the correct-scope `GLOSSARY.md` and qualifying decisions to ADRs, so there has to be a project to keep them.
 
 ## The round, and the loop that outlives it
 
@@ -28,7 +28,7 @@ Mid-implementation rounds are the normal case. Only a decision that changes an i
 It stands at its recommendation. Anything blocking was labelled as blocking, and that label is the only thing that holds the round open. Silence never approves the plan.
 
 **How is this different from `grill-with-docs`?**
-`grill-with-docs` is the one-shot front door: a planning interview that leaves `CONTEXT.md` and ADRs behind. `batch-grill-with-docs` is the same interview in batch rounds, and it stays in the loop afterwards, so decisions the code surfaces mid-build still get a round rather than an assumption.
+`grill-with-docs` is the one-shot front door: a planning interview that leaves `GLOSSARY.md` and ADRs behind. `batch-grill-with-docs` is the same interview in batch rounds, and it stays in the loop afterwards, so decisions the code surfaces mid-build still get a round rather than an assumption.
 
 **It kept asking questions long after we agreed the plan.**
 That is the skill working, up to a point. Writing code is how the graph grows, so a question the work raised and only you can settle belongs in a round of its own. If it never stops, the scope was too big: break the work up and batch-grill the pieces.
@@ -38,7 +38,7 @@ That is the skill working, up to a point. Writing code is how the graph grows, s
 - A round arrives as a numbered batch, each question with its recommended answer, and you answer only what matters to you; the rest stand as recommended.
 - Anything blocking is flagged as blocking, and nothing changes an interface, proves hard to reverse, or reopens a settled decision without one.
 - A round waits for its lookups instead of arriving in pieces as each report lands.
-- Confirmed terms appear in `CONTEXT.md` and hard-to-reverse calls as ADRs without you asking.
+- Confirmed terms appear in `GLOSSARY.md` and hard-to-reverse calls as ADRs without you asking.
 - It stops at the agreed plan and asks for confirmation before writing code.
 
 ## Where it fits
